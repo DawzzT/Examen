@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,17 +27,19 @@ namespace Presentation
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-           
+
 
             ActivoFijo actfijo = new ActivoFijo()
             {
-               Id = count++,
-               NombreActivo = txtNombre.Text,
-               CodigoActivo = txtCodigo.Text,
-               Descripcion = txtxtDescripcion.Text,
-               ValorActivo = nudValor.Value,
-               FechaAdquisicion = dtpAdquisicion.Value,
-              ValorResidual  = nudValorResidual.Value
+                Id = count++,
+                NombreActivo = txtNombre.Text,
+                CodigoActivo = txtCodigo.Text,
+                Descripcion = txtxtDescripcion.Text,
+                ValorActivo = nudValor.Value,
+                FechaAdquisicion = dtpAdquisicion.Value,
+                ValorResidual = nudValorResidual.Value,
+                MetodoDepresiacion = (MetodoDepresiacion)cmbTipoDepresiacion.SelectedIndex,
+                tipoActivoFijo = (TipoActivoFijo)cmbTipoActivo.SelectedIndex
 
             };
 
