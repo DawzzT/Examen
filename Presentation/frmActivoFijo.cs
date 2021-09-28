@@ -61,7 +61,7 @@ namespace Presentation
                 ValorResidual = nudValorResidual.Value,
                 MetodoDepresiacion = (MetodoDepresiacion)cmbTipoDepresiacion.SelectedIndex,
                 tipoActivoFijo = (TipoActivoFijo)cmbTipoActivo.SelectedIndex,
-                
+                VidaUtil = value
             };
 
         }

@@ -63,10 +63,10 @@ namespace Infraestructure
 
             foreach (ActivoFijo p in activosfijos)
             {
-                result += "-Codigo: " + p.Id.ToString() + "   Nombre: " + p.NombreActivo.ToString() +
-                              "   Cantidad: " + p.CodigoActivo.ToString() + "   Precio: " + p.ValorActivo.ToString() +
-                              "   Caducidad: " + p.FechaAdquisicion.ToString() + "   Unidad de Medida: " + p.tipoActivoFijo.ToString() +
-                              "   Vida útil: "+p.VidaUtil.ToString()+""+Depreciacion(p)+"\n";
+                result += "-ID: " + p.Id.ToString() + "   Nombre: " + p.NombreActivo.ToString() +
+                              "   Codigo: " + p.CodigoActivo.ToString() + "  Valor: " + p.ValorActivo.ToString() +
+                              "   Fecha: " + p.FechaAdquisicion.ToString() + "   Tipo de Activo: " + p.tipoActivoFijo.ToString() +
+                              "   Vida útil: "+p.VidaUtil.ToString()+"  Depreciacion: "+Depreciacion(p)+"\n";
 
 
             }
