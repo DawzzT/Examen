@@ -14,25 +14,28 @@ namespace Infraestructure
             Add(actfijo, ref activosfijos);
         }
 
-        public decimal DepreciacionLineaRecta (ActivoFijo actfijo)
+        public decimal Depreciacion(ActivoFijo actfijo)
         {
-            decimal Depreciacion = 0;
-            Depreciacion = (actfijo.ValorActivo - actfijo.ValorResidual) / actfijo.VidaUtil;
-
-            return Depreciacion;
-        }
-
-        public decimal DepreciacionDecremental(ActivoFijo actfijo)
-        {
-            decimal importe = actfijo.ValorActivo - actfijo.ValorResidual;
-            int periodos = 0;
-            int j = 1;
-            for (int i = 1; i<= actfijo.VidaUtil; i++)
+            if (actfijo.MetodoDepresiacion == 0)
             {
-                j += i;
+                decimal Depreciacion = 0;
+                Depreciacion = (actfijo.ValorActivo - actfijo.ValorResidual) / actfijo.VidaUtil;
+
+                return Depreciacion;
             }
-            decimal depreciacion = importe / j;
-            return depreciacion;
+            else
+            {
+                decimal importe = actfijo.ValorActivo - actfijo.ValorResidual;
+                int periodos = 0;
+                int j = 1;
+                for (int i = 1; i <= actfijo.VidaUtil; i++)
+                {
+                    j += i;
+                }
+                decimal depreciacion = importe / j;
+                return depreciacion;
+            }
+
         }
 
 
@@ -51,6 +54,23 @@ namespace Infraestructure
             Array.Copy(pds, tmp, pds.Length);
             tmp[tmp.Length - 1] = af;
             pds = tmp;
+        }
+
+        public string ImprimirActivos()
+        {
+
+            string result = "";
+
+            foreach (ActivoFijo p in activosfijos)
+            {
+                result += "-Codigo: " + p.Id.ToString() + "   Nombre: " + p.NombreActivo.ToString() +
+                              "   Cantidad: " + p.CodigoActivo.ToString() + "   Precio: " + p.ValorActivo.ToString() +
+                              "   Caducidad: " + p.FechaAdquisicion.ToString() + "   Unidad de Medida: " + p.tipoActivoFijo.ToString() +
+                              "   Vida útil: "+p.VidaUtil.ToString()+""+Depreciacion(p)+"\n";
+
+
+            }
+            return result;
         }
     }
 }
