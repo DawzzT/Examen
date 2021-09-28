@@ -29,6 +29,25 @@ namespace Presentation
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+            int value = 0;
+            switch (cmbTipoActivo.SelectedIndex)
+            {
+                case 0:
+                    value = 20;
+                    break;
+                case 1:
+                    value = 5;
+                    break;
+                case 2:
+                    value = 3;
+                    break;
+                case 3:
+                    value = 2;
+                    break;
+                case 4:
+                    value = 1;
+                    break;
+            }
 
 
             ActivoFijo actfijo = new ActivoFijo()
@@ -41,8 +60,8 @@ namespace Presentation
                 FechaAdquisicion = dtpAdquisicion.Value,
                 ValorResidual = nudValorResidual.Value,
                 MetodoDepresiacion = (MetodoDepresiacion)cmbTipoDepresiacion.SelectedIndex,
-                tipoActivoFijo = (TipoActivoFijo)cmbTipoActivo.SelectedIndex
-
+                tipoActivoFijo = (TipoActivoFijo)cmbTipoActivo.SelectedIndex,
+                
             };
 
         }

@@ -11,7 +11,6 @@ namespace Domain
         public string CodigoActivo { get; set; }
         public string NombreActivo { get; set; }
         public String Descripcion { get; set; }
-        //20, 5, 3, 2 ,1
         public decimal ValorActivo { get; set; }
         public DateTime FechaAdquisicion { get; set; }
 
