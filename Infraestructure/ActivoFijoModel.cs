@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Infraestructure
 {
-    class ActivoFijoModel
+    public class ActivoFijoModel
     {
-        ActivoFijoModel [] activosfijos;
+        ActivoFijo [] activosfijos;
 
         public void Add (ActivoFijo actfijo)
         {
-            
+            Add(actfijo, ref activosfijos);
         }
 
         public decimal DepreciacionLineaRecta (ActivoFijo actfijo)
@@ -33,6 +33,24 @@ namespace Infraestructure
             }
             decimal depreciacion = importe / j;
             return depreciacion;
+        }
+
+
+
+
+        private void Add(ActivoFijo af, ref ActivoFijo[] pds)
+        {
+            if (pds == null)
+            {
+                pds = new ActivoFijo[1];
+                pds[pds.Length - 1] = af;
+                return;
+            }
+
+            ActivoFijo[] tmp = new ActivoFijo[pds.Length - 1];
+            Array.Copy(pds, tmp, pds.Length);
+            tmp[tmp.Length - 1] = af;
+            pds = tmp;
         }
     }
 }

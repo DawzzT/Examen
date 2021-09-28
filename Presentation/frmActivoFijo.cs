@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Enums;
+using Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Presentation
 {
     public partial class frmActivoFijo : Form
     {
+        public ActivoFijoModel afijo { get; set; }
         int count = 0;
         public frmActivoFijo()
         {
